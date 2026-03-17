@@ -37,7 +37,7 @@ A robust and professional User Management System built with **Laravel 12.0**, fe
 ## 🛠️ Tech Stack
 
 - **Backend**: Laravel 12.0 (PHP 8.3)
-- **Database**: MySQL / PostgreSQL
+- **Database**: MySQL
 - **Frontend**: Blade Templating, Bootstrap 5, Custom Vanilla CSS
 - **Icons**: Font Awesome 6
 - **Notifications**: SweetAlert2 (JS)

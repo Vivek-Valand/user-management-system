@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,14 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+
+        $user = User::where('email', $credentials['email'])->first();
+
+        if ($user && $user->status === 'inactive') {
+            return back()->withErrors([
+                'email' => 'Your account is deactivated.',
+            ])->onlyInput('email');
+        }
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
